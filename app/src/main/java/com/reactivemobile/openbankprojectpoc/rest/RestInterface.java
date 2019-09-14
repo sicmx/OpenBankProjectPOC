@@ -12,16 +12,16 @@ import retrofit2.http.Path;
  */
 public interface RestInterface {
 
-    @POST("/my/logins/direct")
+    @POST("https://apisandbox.openbankproject.com/my/logins/direct")
     @Headers("Content-Type: application/json")
     Call<DirectLoginResponse> doDirectLogin(@Header("Authorization") String authHeader);
 
-    @GET("obp/v2.2.0/banks")
+    @GET("https://apisandbox.openbankproject.com/obp/v2.2.0/banks")
     Call<Banks> getBanks();
 
-    @GET("obp/v2.2.0/banks/{bank_id}/accounts/private")
+    @GET("https://apisandbox.openbankproject.com/obp/v2.2.0/banks/{bank_id}/accounts/private")
     Call<BankAccounts> getPrivateBankAccountsForBank(@Path("bank_id") String bankId, @Header("Authorization") String authHeader);
 
-    @GET("obp/v2.2.0/banks/{bank_id}/accounts/{account_id}/{view_id}/account")
+    @GET("https://apisandbox.openbankproject.com/obp/v2.2.0/banks/{bank_id}/accounts/{account_id}/{view_id}/account")
     Call<BankAccount> getBankAccountDetails(@Path("bank_id") String bankId, @Path("account_id") String accountId, @Path("view_id") String viewId, @Header("Authorization") String authHeader);
 }

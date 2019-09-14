@@ -39,7 +39,7 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
 
             @Override
             public void onResponse(Call<DirectLoginResponse> call, Response<DirectLoginResponse> response) {
-                if (response.code() == 200) {
+                if (response.code() == 200 | response.code() == 201) {
                     loginView.loginOk(response.body().token);
                 } else {
                     loginView.showError(String.format(Locale.UK, "Error logging in, response was %d", response.code()));
